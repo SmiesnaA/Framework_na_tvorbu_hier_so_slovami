@@ -323,7 +323,6 @@ export abstract class Game {
   
       GAME.newThisGame();
     } else {
-      console.log("sending new game");
       graph.send("newGame", "");
     }
   }

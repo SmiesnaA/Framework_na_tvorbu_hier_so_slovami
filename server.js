@@ -38,7 +38,6 @@ var count = 0;
 io.on("connection", function (client) {
   count++;
   SOCKET_LIST.push(client);
-  console.log("connect " + client.id);
   io.sockets.emit("broadcast", count);
 
   client.on("newConnection", function () {
@@ -72,12 +71,10 @@ io.on("connection", function (client) {
   });
 
   client.on("correctClickedNodes", function (data) {
-    console.log('clicked');
     io.sockets.emit("correctClickedNodes", data);
   });
 
   client.on("clickedNodeAddEdge", function (data) {
-    console.log('clicked');
     var node = JSON.parse(data);
     io.sockets.emit("clickedNodeAddEdge", [node.id, node.name]);
   });
@@ -104,7 +101,6 @@ io.on("connection", function (client) {
 
   client.on("addNode", function (data) {
     var d = JSON.parse(data);
-    console.log('addNode');
     io.sockets.emit("addNode", [d.id, d.name, d.editable]);
   });
 
@@ -115,7 +111,6 @@ io.on("connection", function (client) {
 
   client.on("editNode", function (data) {
     var d = JSON.parse(data);
-    console.log('editNode');
     io.sockets.emit("editNode", [d.id, d.name]);
   });
 
@@ -142,7 +137,6 @@ io.on("connection", function (client) {
   });
 
   client.on("newGame", function (data) {
-    console.log('newGame');
     io.sockets.emit("newGame");
   });
 
@@ -150,6 +144,5 @@ io.on("connection", function (client) {
     SOCKET_LIST = SOCKET_LIST.filter((s) => s != client);
     count--;
     io.sockets.emit("disconnected", count);
-    console.log("client disconnect...", client.id);
   });
 });

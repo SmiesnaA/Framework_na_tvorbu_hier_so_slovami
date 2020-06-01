@@ -699,7 +699,7 @@ class Graph {
    */
   setNodesColor(nodes: Node[], color: string) {
     for (var node of nodes) {
-      console.log("change c");
+    
       this.changeNodeColor(node.id, color);
     }
   }
@@ -1285,7 +1285,7 @@ class Graph {
     if (this.socket != null) {
       this.socket.send("addEdgeToPrevNode", "");
     } else {
-      console.log("prev " + this.prevNode.name + " " + this.currNode.name);
+    
       this.addEdgeG(this.prevNode.name, this.currNode.name);
     }
   }
@@ -1583,8 +1583,7 @@ class Graph {
       },
       ],
     });
-    console.log("cyelement " + this.cyElement)
-  
+   
   }
 
   createGraphCy() {

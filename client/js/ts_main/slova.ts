@@ -138,7 +138,6 @@ export class Slova extends Game {
   }
 
   setCorrect(word: string) {
-    console.log('setcor ' + word);
     this.setWord(word);
   }
 
@@ -147,14 +146,11 @@ export class Slova extends Game {
   }
 
   unsetDraggedOverNodesInGraph() {
-    console.log('unsetting');
     graph.unsetDraggedOverNodes();
   }
 
   setWord(word: string) {
     document.getElementById(word).innerHTML = word;
-    console.log('setcor ' + word);
-    console.log('el ' + document.getElementById(word));
     this.removeWord(word);
     super.checkDone();
   }
@@ -166,7 +162,6 @@ export class Slova extends Game {
 
   check() {
     var letters = graph.getDraggedOverNodesNames();
-    console.log('check let ' + letters);
     var word = letters.join("");
 
     if (this.getSocketsLn() == 0) {
@@ -188,7 +183,6 @@ export class Slova extends Game {
   }
 
   async text(div: string) {
-    console.log('text');
     await graph.checkIfExists();
     document.getElementById(div).innerHTML = "";
     for (var string of this.answers) {

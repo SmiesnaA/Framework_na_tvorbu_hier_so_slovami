@@ -186,7 +186,6 @@ export class Osemsmerovka extends Game {
 
   correctClickedNodes(json: string) {
     var nodes = JSON.parse(json);
-    console.log("nodes correct " + json)
     graph.setColorNodes(nodes.nodes, "#116466");
 
   }
