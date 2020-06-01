@@ -16,7 +16,7 @@ export class Slova extends Game {
   localStorage: SessionStorage;
   words: Node[];
   answers: string[];
-  fileData: FileData[];
+  readData: FileData[];
   typeOfGame: string;
   player: Player;
   level: number = 1;
@@ -75,7 +75,7 @@ export class Slova extends Game {
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "circle");
     await graph.checkIfExists();
     this.words = graph.getNodes();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
     graph.lockNodes();
     graph.onNodeOver_addEdge("#66a5ad");
@@ -89,7 +89,7 @@ export class Slova extends Game {
 
     await graph.checkIfExists();
     this.words = graph.getNodes();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
     graph.lockNodes();
     graph.onNodeOver_addEdge("#66a5ad");
@@ -216,7 +216,7 @@ export class Slova extends Game {
   }
 
   newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
@@ -237,7 +237,7 @@ export class Slova extends Game {
   }
 
   randomThisGame() {
-    if (this.level == this.fileData.length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {

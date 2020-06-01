@@ -19,6 +19,7 @@ export class Mapa extends Game {
   typeOfGame: string;
   player: Player;
   done: boolean = false;
+  readData: FileData[];
 
 
   constructor(file: string) {
@@ -74,6 +75,7 @@ export class Mapa extends Game {
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "preset", true);
 
     await graph.checkIfExists();
+    this.readData = graph.readData();
     this.word = graph.getNodes()[0];
     graph.setAllNodesUneditable();
   }
@@ -164,7 +166,7 @@ export class Mapa extends Game {
    * Sets another word in list of words and sets new graph
    */
   newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
@@ -195,7 +197,7 @@ export class Mapa extends Game {
       }
       var ix = this.level;
       while (this.level == ix || ix == 0) {
-        ix = Math.floor(Math.random() * (graph.readData().length + 1));
+        ix = Math.floor(Math.random() * (this.readData.length + 1));
       }
       this.level = ix;
       /** CHANGE THIS */

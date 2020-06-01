@@ -18,7 +18,7 @@ export class Osemsmerovka extends Game {
   words: Node[];
   answers: string[];
   typeOfGame: string;
-  fileData: FileData[];
+  readData: FileData[];
   player: Player;
   correctAnswers: string[] = [];
 
@@ -68,7 +68,7 @@ export class Osemsmerovka extends Game {
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "grid");
     await graph.checkIfExists();
  
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.words = graph.getNodes();
     this.answers = graph.getAnswers(this.level);
     graph.onNodeClick_addEdge("#d8412f");
@@ -85,7 +85,7 @@ export class Osemsmerovka extends Game {
     await graph.checkIfExists();
  
     this.words = graph.getNodes();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
   
     graph.onNodeClick_addEdge("#d8412f");
@@ -218,7 +218,7 @@ export class Osemsmerovka extends Game {
   }
 
   async newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
@@ -237,7 +237,7 @@ export class Osemsmerovka extends Game {
   }
 
   async randomThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {

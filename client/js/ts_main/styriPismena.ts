@@ -16,7 +16,7 @@ export class StyriPismena extends Game {
   localStorage: SessionStorage;
   words: Node[];
   answers: string[];
-  fileData: FileData[];
+  readData: FileData[];
   typeOfGame: string;
   player: Player;
   level: number = 1;
@@ -75,7 +75,7 @@ export class StyriPismena extends Game {
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "circle");
     await graph.checkIfExists();
     this.words = graph.getNodes();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
     graph.lockNodes();
     graph.onNodeClick_addEdge("#66a5ad");
@@ -89,7 +89,7 @@ export class StyriPismena extends Game {
 
     await graph.checkIfExists();
     this.words = graph.getNodes();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
     graph.lockNodes();
     graph.onNodeClick_addEdge("#66a5ad");
@@ -211,7 +211,7 @@ export class StyriPismena extends Game {
   }
 
   newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {

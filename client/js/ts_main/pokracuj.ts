@@ -14,7 +14,7 @@ import { SweetAlertIcon } from "sweetalert2";
 export class Pokracuj extends Game {
   localStorage: SessionStorage;
   word: Node;
-  fileData: FileData[];
+  readData: FileData[];
   typeOfGame: string;
   player: Player;
   level: number = 1;
@@ -70,7 +70,7 @@ export class Pokracuj extends Game {
     var edgeStyle = ["black", "4px", "basic"];
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "preset", false);
     await graph.checkIfExists();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.word = graph.getNodes()[0];
     graph.setAllNodesUneditable();
   }
@@ -79,7 +79,7 @@ export class Pokracuj extends Game {
     this.player.getSocket().send("newConnection", "");
 
     await graph.checkIfExists();
-    this.fileData = graph.readData();
+    this.readData = graph.readData();
     this.word = graph.getNodes()[0];
   }
 
@@ -158,7 +158,7 @@ export class Pokracuj extends Game {
   }
 
   newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
@@ -175,7 +175,7 @@ export class Pokracuj extends Game {
   }
 
   randomThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
