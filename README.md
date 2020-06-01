@@ -20,3 +20,6 @@ Zdrojové súbory k frameworku na tvorbu hier so slovami (Bakalárska práca)
  * npm install --save-dev file-saver
  * npm install --save-dev draggabilly
  * npm install --save-dev sweetalert2
+ * npm install --save-dev lodash
+ * npm install --save-dev lodash.debounce
+ * npm install --save-dev lodash.throttle
