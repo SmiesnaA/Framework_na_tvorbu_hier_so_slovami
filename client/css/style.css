@@ -1,0 +1,1153 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  background: #fff;
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color:  #b0c4de;
+}
+
+a:hover, a:active, a:focus {
+  color:  #b0c4de;
+  outline: none;
+  text-decoration: none;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  padding: 30px 0;
+  height: 92px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+#banner h1 {
+  z-index: 2000;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+
+#banner h3 {
+  margin: 0 auto;
+  z-index: 2000;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-left: 15%;
+}
+
+
+
+
+#header-games{
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 50px;
+}
+
+
+#header.header-fixed {
+  background: rgba(52, 59, 64, 0.9);
+  padding: 20px 0;
+  height: 72px;
+  transition: all 0.5s;
+}
+
+/*--------------------------------------------------------------
+# Banner Section
+--------------------------------------------------------------*/
+#banner {
+  width: 100%;
+  height: 120vh;
+  background: url(../img/clouds.jpg) top center;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+#banner::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+#banner .banner-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+img {
+  position: relative;
+  width: 10%;
+  height: 8%;
+}
+
+
+
+#canvas h1 {
+  margin: 0 auto;
+  padding-top: 20px;
+  margin: 10px;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+}
+
+#banner h2 {
+  color: #eee;
+  margin-bottom: 50px;
+  font-size: 24px;
+}
+
+
+.play {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.play:hover {
+  background-color: #b0c4de;
+  color: #fff;
+}
+
+#banner .games:hover {
+  background: #b0c4de ;
+  border: 2px solid #b0c4de ;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+}
+
+.nav-menu li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu > li {
+  float: left;
+}
+
+.nav-menu li:hover > ul,
+.nav-menu li.sfHover > ul {
+  display: block;
+}
+
+.nav-menu ul ul {
+  top: 0;
+}
+
+.nav-menu ul li {
+  min-width: 180px;
+}
+
+/* Nav Meu Container */
+#nav-menu-container {
+  margin-right: 50px;
+  float: right;
+}
+
+
+/* Nav Meu Styling */
+.nav-menu a {
+  padding: 0 8px 10px 8px;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  outline: none;
+}
+
+.nav-menu > li {
+  margin-left: 10px;
+}
+
+.nav-menu > li > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #b0c4de;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.nav-menu a:hover:before, .nav-menu li:hover > a:before, .nav-menu .menu-active > a:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.nav-menu ul {
+  margin: 4px 0 0 0;
+  border: 1px solid #e7e7e7;
+}
+
+.nav-menu ul li {
+  background: #fff;
+}
+
+.nav-menu ul li:first-child {
+  border-top: 0;
+}
+
+.nav-menu ul li a {
+  padding: 10px;
+  color: #333;
+  transition: 0.3s;
+  display: block;
+  font-size: 13px;
+  text-transform: none;
+}
+
+.nav-menu ul li a:hover {
+  background: #A2D1F0;
+  color: #fff;
+}
+
+.nav-menu ul ul {
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Graph div
+--------------------------------------------------------------*/
+
+
+#banner #canvas{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+  background: white;
+  background-size: cover;
+}
+
+#banner #canvas.osemsmerovka{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+  background: #fcfdfe;
+  background-size: cover;
+  justify-content: center;
+}
+
+#banner #canvas.mapa{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+  background: linear-gradient(white, #faf4ee);
+  background-size: cover;
+  justify-content: center;
+}
+
+
+#banner #canvas.pokracuj{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+  background: linear-gradient(white, #e9dccd);
+  background-size: cover;
+  justify-content: center;
+}
+
+#banner #canvas.slova{
+  width: 70%;
+  height: 70%;
+  background: #fffaf6;
+}
+
+#pane{
+  position: relative;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pane.mapa {
+  background-color: #faf4ee;
+}
+
+#pane #player {
+  position: relative;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-left: 30px;
+  margin-top: 0;
+}
+
+.pokracuj #player {
+  color: #613a43;
+}
+
+.slova #player {
+  color: #416270;
+}
+
+.osemsmerovka #player {
+  color: #d8412f;
+}
+
+.mapa #player {
+  color: #e1b80d;
+}
+
+#pane #paneGame {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: auto;
+  order: 2;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+
+/* Wrapper */
+.check {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 55%;
+  left: 75%;
+  background-color: black;
+	border-radius: 3.6rem;
+	cursor: pointer;
+	font-size: 2.0rem;
+	height: 3.6rem;
+	line-height: 3.6rem;
+	margin: 0 5px;
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	width: 3.6rem;
+}
+
+#save, #off {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  top: 0%;
+  left: 0%;
+}
+
+/* Circle */
+.check span {
+	border-radius: 0;
+	display: block;
+	height: 0;
+	left: 50%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 0;
+}
+.check:hover span {
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 3.6rem;
+	margin: -1.8rem;
+}
+
+.check span {
+	background-color: white;
+}
+
+/* Icons */
+.check i {
+	background: none;
+	color: white;
+	height: 3.6rem;
+	left: 0;
+	line-height: 3.6rem;
+	position: absolute;
+	top: 0;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 3.6rem;
+	z-index: 10;
+}
+
+.check #checkIcon {
+	color: white;
+}
+
+.check:hover i {
+	color: black;
+}
+
+.check#add {
+  top: 0%;
+  left: 0%;
+  margin-left: 10px;
+}
+
+.check#add:hover i {
+  color: black;
+}
+
+
+.osemsmerovka .check#checkCorrect {
+  top: 50%;
+  left: 80%;
+}
+
+
+#banner #graph.pokracuj {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+
+#banner #graph.mapa {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: #faf4ee;
+}
+
+
+#graph.slova {
+  position: relative;
+  width: 30%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+}
+
+
+#graph.osemsmerovka  {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 60%;
+}
+
+
+.game {
+   display: inline-block;
+  padding: 8px 28px;
+  border-radius: 50px;
+  margin: 10px;
+  background:  #b0c4de;
+  border: 2px solid  #b0c4de;
+  transition: all 0.5s;
+}
+
+.game a {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #333;
+  text-decoration: none;
+}
+
+.game:hover {
+  -webkit-transform: scale(1.2);
+ -ms-transform: scale(1.2);
+   transform: scale(1.2);
+}
+
+#graphButtons {
+  width: 15%;
+  height: 10%;
+  margin: 0px;
+}
+
+
+#gameButtons.pokracuj button, #gameButtons.pokracuj .dropbtn{
+  background-color: #ffd604;
+  color: #fcfdfe;
+}
+
+#gameButtons.mapa button, #gameButtons.mapa .dropbtn{
+  background-color: #4fb2aa;
+  color: #fff5e9;
+}
+
+#gameButtons.osemsmerovka button, #gameButtons.osemsmerovka .dropbtn{
+  background-color: #fe7a47;
+  color: #fcfdfe;
+}
+
+#gameButtons.slova button, #gameButtons.slova .dropbtn{
+  background-color: #c0003a;
+  color: #fcfdfe;
+}
+
+
+#letters {
+  background: transparent;
+  width: 40%;
+  height: 40%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#letters div  {
+  cursor: pointer;
+  font-size: 1.5em;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: auto;
+  text-align: center;
+}
+
+#letters div div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #8aa4ab;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+
+
+
+#words {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+}
+
+#words div {
+  padding: 10px;
+  color: #d8412f;
+  font-size: 1em;
+}
+
+
+
+#newGameBtn, #rndGameBtn{
+  width:120px;
+  height: 40px;
+  border-radius: 100px;
+  margin: 5% auto;
+  font-family:  "Poppins", sans-serif;
+  font-weight: 400;
+  font-size:0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+#newGameBtn i, #rndGameBtn i{
+  display: none;
+}
+
+
+#newGameBtn:hover, #rndGameBtn:hover{
+  color: rgba(0, 0, 0, 1);
+  font-weight: 450;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+}
+
+
+
+#text {
+  position: absolute;
+  background: #e2e7e5;
+  width: 100px;
+  height: 40px;
+}
+
+#OK {
+  background: url(../img/check.svg) no-repeat;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#nodeDiv {
+  width: 150px;
+  height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+
+#banner #buttons {
+  float: right;
+  display: block;
+  justify-content: center;
+  align-content: center;
+  background: #343b40;
+  padding: 20px;
+  margin-top: 200px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #343b40;
+  padding: 30px 0;
+  color: #fff;
+  font-size: 14px;
+  clear: both;
+  position: relative;
+  text-align: center;
+}
+
+#footer .copyright {
+  text-align: center;
+}
+
+
+/* Preloder */
+
+#preloder {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	background: #ffffff;
+}
+.loader {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -13px;
+	margin-left: -13px;
+	border-radius: 60px;
+	animation: loader 0.8s linear infinite;
+	-webkit-animation: loader 0.8s linear infinite;
+}
+@keyframes loader {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		border: 4px solid #f44336;
+		border-left-color: transparent;
+	}
+	50% {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+		border: 4px solid #673ab7;
+		border-left-color: transparent;
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		border: 4px solid #f44336;
+		border-left-color: transparent;
+	}
+}
+@-webkit-keyframes loader {
+	0% {
+		-webkit-transform: rotate(0deg);
+		border: 4px solid #f44336;
+		border-left-color: transparent;
+	}
+	50% {
+		-webkit-transform: rotate(180deg);
+		border: 4px solid #673ab7;
+		border-left-color: transparent;
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		border: 4px solid #f44336;
+		border-left-color: transparent;
+	}
+}
+
+
+#input-container{
+	position:relative;
+  background-color: rgb(218, 218, 218);
+  color:#2a4239;
+}
+
+#input-container input{ 
+  text-align: center;
+  width:100%;
+  height: 100%;
+  color:#2a4239;
+}
+
+/** gallery **/
+h1{
+  text-align: center;
+  color:white;
+}
+.container-all{
+  width: fit-content;
+  margin: 20px auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-gap: 10px;
+}
+
+.photo{
+  position: relative;
+  margin: 20px;  
+}
+
+img{
+  position: relative;
+  width: 100%;
+  transition-duration: .3s;
+  max-width: 100%;
+  height: 100%;
+  display:block;
+  cursor:pointer;
+}
+.title{
+  position:absolute;
+  display:block;
+  cursor:pointer;
+  top: 35%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.6em;
+  text-shadow: 1px 5px 10px black;
+  transition-duration: .3s;
+  color: white;
+}
+
+.text{
+  position:absolute;
+  top: 70%;
+  cursor:pointer;
+  max-width: 80%;
+  text-align:center;
+  left: 50%;
+  text-shadow: 1px 5px 10px black;
+  font-size: 1em;
+  font-weight: bold;
+  display:none;
+  margin-right: -50%;
+  transition-duration: .3s;
+  transform: translate(-50%, -50%) 
+}
+
+.photo:hover img{
+  transform: scale(1.2);
+  transition-duration: .3s;
+  filter: grayscale(50%);
+  opacity: .7;
+}
+.photo:hover span{
+  color:black;
+  display: block;
+  transition-duration: .3s;
+}
+
+#banner #canvas.main {
+  background-color: transparent;
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+#gameButtons .dropbtn{
+  width:85px;
+  height: 30px;
+  border-radius: 100px;
+  margin: 5% auto;
+  font-family:  "Poppins", sans-serif;
+  font-weight: 400;
+  font-size:0.9rem;
+  transition: all 0.2s ease-in-out;
+  display: none;
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+#dropdown-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 120px;
+  height: 80px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#dropdown-content a {
+  float: none;
+  font-family:  "Poppins", sans-serif;
+  font-size: 0.8em;
+  color: black;
+  padding-left: 12px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  #newGameBtn, #rndGameBtn{
+    width:100px;
+    height: 25px;
+    font-size: 0.7em;
+  }
+
+  .check i {
+    height: 2.5em;
+    line-height: 2.5em;
+    width: 2.5em;
+  }
+
+  .check {
+    font-size: 1em;
+    height: 2.5em;
+    line-height: 2.5em;
+    width: 2.5em;
+  }
+
+  #paneGame {
+    min-width: 70%;
+  }
+
+  #pane #player {
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+
+  
+  #banner h1 {
+    font-size: 1.3em;
+  }
+
+  #banner h3 {
+    font-size: 1.3em;
+  }
+
+
+}
+
+@media only screen and (max-width: 620px) {
+  #newGameBtn, #rndGameBtn{
+    width:70px;
+    height: 20px;
+    font-size: 0.5em;
+  }
+
+  .check i {
+    height: 2em;
+    line-height: 2em;
+    width: 2em;
+  }
+
+  .check {
+    font-size: 1em;
+    height: 2em;
+    line-height: 2em;
+    width: 2em;
+  }
+
+  #banner h1 {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 0.8em;
+  }
+
+  #banner h3 {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .title, .text {
+    color: black;
+    display: block;
+    text-shadow: 1px 5px 10px black;
+    font-size: 0.8em;
+    font-weight: 1000;
+  }
+
+  #pane #player {
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-left: 5px;
+  }
+
+  #gameButtons .dropbtn {
+    display: block;
+  }
+ 
+  #banner {
+    height: 160vh;
+  }
+  #footer {
+    margin-top: a0uto;
+  }
+ 
+  #banner #canvas{
+    width: 100%;
+    height: 70%;
+  }
+  
+  #banner #canvas.pokracuj, #banner #canvas.mapa{
+    width: 90%;
+    height: 70%;
+  }
+
+  #banner #canvas.osemsmerovka{
+    width: 90%;
+    height: 70%;
+  }
+
+  #banner #canvas.slova{
+    width: 90%;
+    height: 70%;
+  }
+  
+  #graph.osemsmerovka  {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 70%;
+  }
+
+  #graph.slova {
+    width: 60%;
+    height: 30%;
+  }
+
+
+  .osemsmerovka .check#checkCorrect {
+    top: 80%;
+    left: 80%;
+}
+  .container-all{
+    grid-template-columns: 320px;
+    grid-gap: 0px;
+    padding: 0px;
+  }
+
+  #canvas h1 {
+    padding-top: 25px;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 28px;
+    display: block;
+  }
+  #banner h1 {
+    margin-top: 40px;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 28px;
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  #banner h3 {
+    margin-top: 40px;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 28px;
+    margin-left: 0px;
+    text-align: center;
+  }
+  #pane #player {
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 0;
+  }
+  #newGameBtn, #rndGameBtn{
+   display: none; 
+   height: 25px;
+  }
+
+  .check i {
+    height: 1.8em;
+    line-height: 1.8em;
+    width: 1.8em;
+  }
+
+  .check {
+    font-size: 1em;
+    height: 1.8em;
+    line-height: 1.8em;
+    width: 1.8em;
+  }
+
+  .check.slova {
+    top: 60%;
+    left: 85%;
+  }
+  
+  .check span {
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 0;
+  }
+  #pane #paneGame {
+    margin-right: 10px;
+  }
+
+  #pane {
+    height: 10%;
+  }
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hry so slovami</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+
+  <!-- Favicons -->
+  <link href="client/img/icon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+
+  <!-- Main Stylesheet File -->
+  <link href="client/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+
+<section id="banner">
+  <header id="header-games">
+    <div class="container">
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="index.html">Domov</a></li>
+          <li class="menu-active"><a href="gamesPage.html">Hry</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+    <h3>Vieš pokračovať?</h3>
+  </header><!-- #header -->
+
+  <div id="canvas" class='pokracuj'>
+    <div id="pane" class="pokracuj">
+      <div id="add" class="check">
+        <i id="checkIcon" class="fas fa-plus"></i><span></span>
+      </div>
+      <h1 id="player"></h1>
+      <div id="paneGame">
+          <div id="save" class="check">
+            <i id="iconCheck" class="fas fa-download"></i><span></span>
+          </div>
+
+        <div id="gameButtons" class='pokracuj'>
+          <button class="dropbtn" onclick=showMenu()>Hra 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="dropdown-content" style="display: none;">
+            <a id='newGameBtn'>Nová hra</a>
+          </div>
+          <button type="button" id="newGameBtn">Nová hra</button>
+          <button type="button" id="rndGameBtn">Náhodná hra</button>
+        </div> 
+        <div id="off" class="check">
+          <a href="gamesPage.html">
+            <i id="iconCheck" class="fas fa-power-off"></i><span></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="graph" class='pokracuj'>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Andrea Smiešna</strong>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+  <!-- JavaScript Libraries -->
+  <script src="slovaZacinajuceNa.js"></script>
+  <script src="client/css/js/showMenu.js"></script>
+
+</body>
+</html>

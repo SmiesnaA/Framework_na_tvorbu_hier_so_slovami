@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5",
+      "sourceMap": true,
+      "lib": ["es6", "dom", "es2017"],
+      "forceConsistentCasingInFileNames": false
+    },
+    "typedocOptions": {
+        "mode": "modules",
+        "out": "docs"
+    },
+    "exclude": [
+      "node_modules",
+      "ts_main"
+    ]
+  }

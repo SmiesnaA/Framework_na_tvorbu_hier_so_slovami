@@ -1,0 +1,13 @@
+{ 
+    "hra": [
+        { "vstup":"P_R_O_A", "odpovede": ["ROPA", "OPAR"] },
+        { "vstup":"S_K_O_A", "odpovede": ["KOSA", "SAKO"] },
+        { "vstup":"L_P_I_A", "odpovede": ["LIPA", "PILA"] },
+        { "vstup":"K_K_S_O", "odpovede": ["SKOK", "KOKS"] },
+        { "vstup":"P_L_O_E", "odpovede": ["POLE", "OLEP"] }
+      ]
+}
+
+
+
+
