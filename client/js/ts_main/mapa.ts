@@ -91,6 +91,7 @@ export class Mapa extends Game {
 
     await graph.checkIfExists();
     this.word = graph.getNodes()[0];
+    this.readData = graph.readData();
   }
 
   setCorrect(word: string) {}
@@ -189,7 +190,7 @@ export class Mapa extends Game {
    * Sets another random word in list of words and sets new graph
    */
   randomThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {

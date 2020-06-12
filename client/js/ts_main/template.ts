@@ -19,6 +19,7 @@ export class Template extends Game {
   typeOfGame: string;
   player: Player;
   done: boolean = false;
+  readData: FileData[];
 
 
   constructor(file: string) {
@@ -75,6 +76,7 @@ export class Template extends Game {
 
     await graph.checkIfExists();
     this.word = graph.getNodes()[0];
+    this.readData = graph.readData();
     graph.setAllNodesUneditable();
   }
 
@@ -89,6 +91,7 @@ export class Template extends Game {
 
     await graph.checkIfExists();
     this.word = graph.getNodes()[0];
+    this.readData = graph.readData();
   }
 
   setCorrect(word: string) {}
@@ -164,7 +167,7 @@ export class Template extends Game {
    * Sets another word in list of words and sets new graph
    */
   newThisGame() {
-    if (this.level == graph.readData().length) {
+    if (this.level == this.readData.length) {
       this.callDialog("Hurá", "Koniec hry", "success", "ok");
     } else {
       if (graph.getGraph() != undefined) {
