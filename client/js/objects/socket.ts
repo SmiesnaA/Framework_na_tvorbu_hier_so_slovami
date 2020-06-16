@@ -124,7 +124,7 @@ export default class Socket {
 
     this.socket.on("addNode", function (data) {
     
-      graph.addNodeG(data[0], data[1], data[2]);
+      graph.addNodeG(data[0], data[1]);
     });
 
     this.socket.on("addChildNode", function (data) {

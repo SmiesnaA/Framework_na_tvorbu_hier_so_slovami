@@ -772,16 +772,14 @@ class Graph {
     if (this.socket != null) {
       this.send(
         "addNode",
-        '{"id": "' +
-          this.number++ +
-          '", "name" : "' +
+        '{"name" : "' +
           str +
           '", "editable" : "' +
           editable +
           '"}'
       );
     } else {
-      this.addNodeG(this.number++, str, editable);
+      this.addNodeG(str, editable);
     }
   }
   /**
@@ -822,8 +820,8 @@ class Graph {
    * @param str
    * @param editable
    */
-  addNodeG(id: number, str: string, editable: boolean = false) {
- 
+  addNodeG(str: string, editable: boolean = false) {
+    var id = this.number++;
     var p = this.randomPosition();
     if (!this.isNodeInGraph(str)) {
       this.forbidEdge = false;
@@ -2200,8 +2198,8 @@ export function getCurrNodeName() {
  * @param {string} str
  * @param {boolean} [editable=false]
  */
-export function addNodeG(id: number, str: string, editable: boolean = false) {
-  Graph.getInstance().addNodeG(id, str, editable);
+export function addNodeG(str: string, editable: boolean = false) {
+  Graph.getInstance().addNodeG(str, editable);
 }
 /**
  *

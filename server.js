@@ -101,7 +101,7 @@ io.on("connection", function (client) {
 
   client.on("addNode", function (data) {
     var d = JSON.parse(data);
-    io.sockets.emit("addNode", [d.id, d.name, d.editable]);
+    io.sockets.emit("addNode", [d.name, d.editable]);
   });
 
   client.on("addChildNode", function (data) {
