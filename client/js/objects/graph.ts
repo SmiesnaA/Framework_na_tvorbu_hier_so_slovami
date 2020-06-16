@@ -199,7 +199,7 @@ class Graph {
    * @memberof Graph
    */
   getGraphJSON() {
-  
+    console.log('prev node ' + this.getPrevNodeString());
     return JSON.stringify({
       nodes: JSON.stringify(this.nodes),
       edges: JSON.stringify(this.edges),
@@ -209,6 +209,7 @@ class Graph {
       layout: this.layout,
       editable: this.editable,
       uneditableNodes: this.getUneditableNodes(),
+      currNode: this.getCurrNodeString(),
       firstNode: this.getFirstNodeString(),
       prevNode: this.getPrevNodeString(),
       correctAnswers: GAME.correctAnswers,
@@ -250,6 +251,11 @@ class Graph {
       g.prevNode == undefined
         ? undefined
         : new Node(g.prevNode[0], g.prevNode[1]);
+    this.currNode =
+      g.currNode == undefined
+        ? undefined
+        : new Node(g.currNode[0], g.currNode[1]);
+    console.log('prev node ' + this.prevNode.id);
     GAME.correctAnswers = g.correctAnswers;
     GAME.level = g.level;
   
@@ -335,6 +341,19 @@ class Graph {
   getFirstNodeString() {
     if (this.firstNode != undefined) {
       return [this.firstNode.id, this.firstNode.name];
+    }
+    return undefined;
+  }
+
+  /**
+   *
+   * Gets current element 
+   * @returns
+   * @memberof Graph
+   */
+  getCurrNodeString() {
+    if (this.currNode != undefined) {
+      return [this.currNode.id, this.currNode.name];
     }
     return undefined;
   }
@@ -822,8 +841,15 @@ class Graph {
           y: p[1],
         },
       });
+      if(this.prevNode != undefined) {
+        console.log('curr node1 ' + this.prevNode.id);
+      }
       
       this.prevNode = this.currNode;
+      if(this.prevNode != undefined) {
+        console.log('curr node2 ' + this.prevNode.id);
+      }
+     
       this.currNode = i;
    
       if (i.name == "") {
@@ -1271,7 +1297,7 @@ class Graph {
     if (this.socket != null) {
       this.socket.send("addEdgeToFirstNode", "");
     } else {
-      this.addEdgeG(this.firstNode.name, this.currNode.name);
+      this.addEdgeG(this.firstNode.id, this.currNode.id);
     }
   }
 
@@ -1286,7 +1312,7 @@ class Graph {
       this.socket.send("addEdgeToPrevNode", "");
     } else {
     
-      this.addEdgeG(this.prevNode.name, this.currNode.name);
+      this.addEdgeG(this.prevNode.id, this.currNode.id);
     }
   }
 
@@ -1400,6 +1426,12 @@ class Graph {
    */
   check(node: cytoscape.node) {
     var text = $("#text").val().toString();
+    if(!text || 0 === text.length) {
+      Dialog.callDialog(
+        "Názov vrchola musí obsahovať aspoň jeden znak"
+      );
+      return;
+    }
     if(node.data("name") == text) {
       var div = document.getElementById("input-container");
       if (div != null) {
@@ -1407,7 +1439,8 @@ class Graph {
       }
       return;
     }
-    if (!this.isNodeInGraph(text)) {
+  
+    if (!this.isNodeInGraph(text) ) {
       this.forbidEdge = false;
       GAME.checkNode(text).then(function (result) {
         if (result == "OK") {
@@ -1753,7 +1786,7 @@ async function createGraphReuseCy() {
       Graph.getInstance().nodesStyle,
       Graph.getInstance().edgeStyle
     );
-    Graph.getInstance().currNode = Graph.getInstance().firstNode = Graph.getInstance().nodes[0];
+    Graph.getInstance().firstNode = Graph.getInstance().nodes[0];
     Graph.getInstance().cyElement.add(newEles);
 
     //Graph.getInstance().setOnDrag();
