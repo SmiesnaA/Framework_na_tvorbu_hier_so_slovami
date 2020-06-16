@@ -199,7 +199,6 @@ class Graph {
    * @memberof Graph
    */
   getGraphJSON() {
-    console.log('prev node ' + this.getPrevNodeString());
     return JSON.stringify({
       nodes: JSON.stringify(this.nodes),
       edges: JSON.stringify(this.edges),
@@ -255,7 +254,7 @@ class Graph {
       g.currNode == undefined
         ? undefined
         : new Node(g.currNode[0], g.currNode[1]);
-    console.log('prev node ' + this.prevNode.id);
+ 
     GAME.correctAnswers = g.correctAnswers;
     GAME.level = g.level;
   
@@ -841,15 +840,8 @@ class Graph {
           y: p[1],
         },
       });
-      if(this.prevNode != undefined) {
-        console.log('curr node1 ' + this.prevNode.id);
-      }
-      
-      this.prevNode = this.currNode;
-      if(this.prevNode != undefined) {
-        console.log('curr node2 ' + this.prevNode.id);
-      }
      
+      this.prevNode = this.currNode;
       this.currNode = i;
    
       if (i.name == "") {
