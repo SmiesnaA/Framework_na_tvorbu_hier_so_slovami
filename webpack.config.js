@@ -11,7 +11,6 @@ module.exports = {
     entry: {
         main: path.join(__dirname, '/client/js/ts_main/main.ts'),
 		pokracuj: path.join(__dirname, '/client/js/ts_main/pokracuj.ts'),
-		osemsmerovka: path.join(__dirname, '/client/js/ts_main/osemsmerovka.ts'),
         slova: path.join(__dirname, '/client/js/ts_main/slova.ts'),
         mapa: path.join(__dirname, '/client/js/ts_main/mapa.ts'),
         hladajSlova: path.join(__dirname, '/client/js/ts_main/hladajSlova.ts')
