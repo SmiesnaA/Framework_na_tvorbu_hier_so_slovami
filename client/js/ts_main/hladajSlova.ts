@@ -10,9 +10,9 @@ import { SweetAlertIcon } from "sweetalert2";
 
 
 /**
- * Game "Osemsmerovka" - Subclass of abstract class Game
+ * Game "HladajSlova" - Subclass of abstract class Game
  */
-export class Osemsmerovka extends Game {
+export class HladajSlova extends Game {
   localStorage: SessionStorage;
   level: number = 1;
   words: Node[];
@@ -63,7 +63,7 @@ export class Osemsmerovka extends Game {
 
   async setNewGame(file: string) {
     var nodeStyle = ["#fcfdfe", "black", "20px", "ellipse", "50px", "50px"];
-    var edgeStyle = ["black", "2px", "basic"];
+    var edgeStyle = ["red", "3px", "arrow"];
    
     graph.createGraphFromFile(file, nodeStyle, edgeStyle, "grid");
     await graph.checkIfExists();
@@ -71,10 +71,9 @@ export class Osemsmerovka extends Game {
     this.readData = graph.readData();
     this.words = graph.getNodes();
     this.answers = graph.getAnswers(this.level);
-    graph.onNodeClick_addEdge("#d8412f");
+    graph.onNodeOver_addEdge("#d0d3d4");
     graph.forbidClickSend();
     graph.lockNodes();
-   
 
     this.text("words");
   }
@@ -88,21 +87,17 @@ export class Osemsmerovka extends Game {
     this.readData = graph.readData();
     this.answers = graph.getAnswers(this.level);
   
-    graph.onNodeClick_addEdge("#d8412f");
+    graph.onNodeOver_addEdge("#d0d3d4");
     
     graph.forbidClickSend();
     graph.lockNodes();
+
     this.text("words");
  
   }
 
   setCorrect(word: string) {
-    super.setCorrect(word, "#116466");
-    graph.setUnclickableNodes(
-      graph.getClickedNodes()
-    );
-    graph.unsetCurrentClickedNodes();
-    graph.clearClickedNodes();
+    this.setWord(word);
   }
 
   setNameOfPlayer(div: string) {
@@ -136,9 +131,8 @@ export class Osemsmerovka extends Game {
   }
 
   setWord(word: string) {
-    document
-      .getElementById(word)
-      .setAttribute("style", "text-decoration: line-through;");
+    document.getElementById(word).innerHTML = word;
+    console.log('word html ' + document.getElementById(word));
     this.removeWord(word);
     super.checkDone();
   }
@@ -162,24 +156,36 @@ export class Osemsmerovka extends Game {
     graph.unsetClickedNodes();
   }
 
+  unsetDraggedOverNodesInGraph() {
+    graph.unsetDraggedOverNodes();
+  }
 
   check() {
-    var letters = graph.getClickedNodesName();
+    var letters = graph.getDraggedOverNodesNames();
     var word = letters.join("");
-
+    if(word.length < 3) {
+        this.callDialog("Ups", "Slovo musí mať aspoň 3 písmená", "error", "Skúsim to ešte raz");
+        this.unsetDraggedOverNodesInGraph();
+        return;
+    }
     if (this.getSocketsLn() == 0) {
       if (this.checkWord(word)) {
+        this.callDialog("Super", "Našiel si slovo " + word, "success", "Hľadať ďalej");
+        this.unsetDraggedOverNodesInGraph();
         this.setCorrect(word);
       } else {
+        this.callDialog("Ups", "Skús to znova", "error", "Tentoraz to dám!");
         this.setIncorrect();
+        this.unsetDraggedOverNodesInGraph();
       }
     } else {
       if (this.checkWord(word)) {
+        this.callDialog("Super", "Našiel si slovo " + word, "success", "Hľadať ďalej");
+        this.unsetDraggedOverNodesInGraph();
         graph.send("correct", '{"name" : "' + word + '"}');
-        graph.send("correctClickedNodes", '{"nodes" : ' +  JSON.stringify(graph.getClickedNodes()) + '}');
       } else {
         this.callDialog("Ups", "Skús to znova", "error", "Tentoraz to dám!");
-        this.unsetClickedNodesInGraph();
+        this.unsetDraggedOverNodesInGraph();
       }
     }
   }
@@ -196,11 +202,11 @@ export class Osemsmerovka extends Game {
     for (var string of this.answers) {
       var newDiv = document.createElement("div");
       newDiv.setAttribute("id", string);
-      newDiv.innerHTML = string;
       document.getElementById(div).appendChild(newDiv);
     }
-    for(var word of this.correctAnswers) {
-        document.getElementById(word).setAttribute("style", "text-decoration: line-through;");
+    for (var word of this.correctAnswers) {
+      document.getElementById(word).innerHTML = word;
+      super.checkDone();
     }
   }
 
@@ -260,8 +266,8 @@ export class Osemsmerovka extends Game {
 }
 
 //--------------------OSEMSMEROVKA -----------------------------------
-var game = new Osemsmerovka(
-  "client/files/fileOsemsmerovka.json");
+var game = new HladajSlova(
+  "client/files/hladajSlova.json");
 game.setNameOfPlayer("player");
 
 game.setOnButtonClick("div#checkCorrect",{"check" : []});

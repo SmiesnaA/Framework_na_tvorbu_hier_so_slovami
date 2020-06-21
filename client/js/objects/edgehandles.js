@@ -1161,6 +1161,7 @@ SOFTWARE.
                 node = sourceNode = this;
                 dragOver = [];
                 dragOver.push(node.id());
+
                 node.style({ "background-color": nodeHoverColor });
                 lastActiveId = node.id();
 
@@ -1198,9 +1199,9 @@ SOFTWARE.
               
               
               if( ( cxtOk || tapOk ) && sourceNode ) {
-                if(!dragOver.includes(node.id())) {
+                
                   dragOver.push(node.id());
-                }
+                
                 node.style({ "background-color": nodeHoverColor });
                 node.addClass( 'edgehandles-hover' );
                 node.addClass( 'edgehandles-target' );

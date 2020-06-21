@@ -647,6 +647,7 @@ class Graph {
       if (!GAME.done) {
           Graph.getInstance().draggedAddEdge();
       }
+      
   }
 
   /**
